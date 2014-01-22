@@ -948,7 +948,7 @@ static inline void kvm_free_irq_routing(struct kvm *kvm) {}
 void kvm_eventfd_init(struct kvm *kvm);
 int kvm_ioeventfd(struct kvm *kvm, struct kvm_ioeventfd *args);
 
-#ifdef CONFIG_HAVE_KVM_IRQCHIP
+#if defined(CONFIG_HAVE_KVM_IRQCHIP) && defined(__KVM_HAVE_IOAPIC)
 int kvm_irqfd(struct kvm *kvm, struct kvm_irqfd *args);
 void kvm_irqfd_release(struct kvm *kvm);
 void kvm_irq_routing_update(struct kvm *, struct kvm_irq_routing_table *);
